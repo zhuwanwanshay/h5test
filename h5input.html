@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<title>h5的新增表单特性</title>
+	<style type="text/css">
+		input{ 
+			display: block;
+		}
+	</style>
+	<script>
+		function $(id){ 
+			return document.getElementById(id);
+		}
+		//初始化
+		function initial(){ 
+			txtRange = $("txtRange");
+			txtRangevalue = $("txtRangevalue");
+			txtRange.addEventListener("change",txtRange_change,false);
+		}
+
+		function txtRange_change(){ 
+			txtRangevalue.value = txtRange.value;
+		}
+
+		//绑定操作
+		window.addEventListener("load",initial,false);
+	</script>
+</head>
+<body>
+<form method="get">
+	<h2>h5新表单元素：接收数据，对数据进行验证</h2>
+	email:<input type="email" placeholder="请输入邮箱"/>
+	search:<input type="search" placeholder="请输入搜索内容"/>
+	URL:<input type="URL" placeholder="请输入URL"/>
+	tel:<input type="tel" placeholder="请输入电话">
+	number:<input type="number" min="0" max="100" step="1" placeholder="请输入数字0-100">
+	range:0<input id="txtRange" type="range" min="0" max="100" step="1" value="50">100
+	<input type="text" id="txtRangevalue">
+
+	日期类型：<input type="date">
+	周类型：<input type="week">
+	月份类型：<input type="month">
+	日期与时间类型：<input type="datetime">
+	本地日期与时间类型：<input type="datetime-local">
+
+	颜色版：<input type="color">
+	<input type="submit" value="提交" onclick="submit">
+</form>
+</body>
+</html>
